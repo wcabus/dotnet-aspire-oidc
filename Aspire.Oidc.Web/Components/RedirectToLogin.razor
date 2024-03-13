@@ -1,0 +1,9 @@
+﻿@inject NavigationManager NavigationManager
+
+@code {
+    protected override void OnInitialized()
+    {
+        var returnUrl = Uri.EscapeDataString("/" + NavigationManager.ToBaseRelativePath(NavigationManager.Uri));
+        NavigationManager.NavigateTo($"authentication/login?returnUrl={returnUrl}", forceLoad: true);
+    }
+}
